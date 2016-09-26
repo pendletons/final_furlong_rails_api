@@ -1,0 +1,10 @@
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+  - config/puma.rb
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
