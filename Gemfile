@@ -66,6 +66,7 @@ group :test do
   gem 'mutant-rspec'
   gem 'codecov', require: false
   gem 'codeclimate-test-reporter', require: nil
+  gem 'codecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
