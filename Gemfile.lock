@@ -85,6 +85,8 @@ GEM
       capybara (>= 1.0, < 3)
       launchy
     cliver (0.3.2)
+    codeclimate-test-reporter (0.6.0)
+      simplecov (>= 0.7.1, < 1.0.0)
     codecov (0.1.5)
       json
       simplecov
@@ -368,6 +370,7 @@ DEPENDENCIES
   byebug
   capybara
   capybara-screenshot
+  codeclimate-test-reporter
   codecov
   database_cleaner
   dirty
