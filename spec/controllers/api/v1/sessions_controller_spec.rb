@@ -26,4 +26,12 @@ RSpec.describe Api::V1::SessionsController do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    it 'succeeds' do
+      delete :destroy, params: { id: create(:user).auth_token }
+
+      expect(response.status).to eq 204
+    end
+  end
 end

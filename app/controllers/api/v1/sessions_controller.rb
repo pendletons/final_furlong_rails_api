@@ -13,6 +13,13 @@ module Api
         end
       end
 
+      def destroy
+        user = User.find_by(auth_token: params[:id])
+        update_user_auth_token(user)
+
+        head 204
+      end
+
       private
 
         def find_user_by_email
