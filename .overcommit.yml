@@ -1,0 +1,52 @@
+# Use this file to configure the Overcommit hooks you wish to use. This will
+# extend the default configuration defined in:
+# https://github.com/brigade/overcommit/blob/master/config/default.yml
+#
+# For a complete list of hooks, see:
+# https://github.com/brigade/overcommit/tree/master/lib/overcommit/hook
+#
+# For a complete list of options that you can use to customize hooks, see:
+# https://github.com/brigade/overcommit#configuration
+CommitMsg:
+  SpellCheck:
+    enabled: true
+  CapitalizedSubject:
+    enabled: false
+  HardTabs:
+    enabled: true
+  TextWidth:
+    enabled: true
+    max_subject_width: 50
+
+PreCommit:
+  ALL:
+    exclude:
+      - 'vendor/**'
+  Brakeman:
+    enabled: true
+  BundleCheck:
+    enabled: true
+  CoffeeLint:
+    enabled: true
+  CssLint:
+    enabled: true
+  HamlLint:
+    enabled: true
+  HardTabs:
+    enabled: true
+  RailsBestPractices:
+    enabled: true
+  RailsSchemaUpToDate:
+    enabled: true
+  Reek:
+    enabled: true
+  RuboCop:
+    enabled: true
+  Sqlint:
+    enabled: true
+  TrailingWhitespace:
+    enabled: true
+  YamlSyntax:
+    enabled: true
+    exclude:
+      - 'config/cucumber.yml'
