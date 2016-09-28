@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Api::V1::UsersController do
   describe 'GET #show' do
     it 'suceeeds' do
-      request.headers['Accept'] = 'application/vnd.finalfurlong.v1'
       user = create :user
       get :show, params: { id: user, format: :json }
 
@@ -11,12 +10,10 @@ RSpec.describe Api::V1::UsersController do
     end
 
     it 'returns json hash' do
-      request.headers['Accept'] = 'application/vnd.finalfurlong.v1'
       user = create :user
       get :show, params: { id: user, format: :json }
 
-      user_response = JSON.parse(response.body, symbolize_names: true)
-      expect(user_response[:email]).to eql user.email
+      expect(json_response[:email]).to eql user.email
     end
   end
 
@@ -26,10 +23,9 @@ RSpec.describe Api::V1::UsersController do
         user_attributes = attributes_for :user
 
         post :create, params: { user: user_attributes, format: :json }
-        user_response = JSON.parse(response.body, symbolize_names: true)
 
         expect(response.status).to eq 201
-        expect(user_response[:email]).to eq user_attributes[:email]
+        expect(json_response[:email]).to eq user_attributes[:email]
       end
     end
 
@@ -39,11 +35,10 @@ RSpec.describe Api::V1::UsersController do
         user_attributes.delete(:email)
 
         post :create, params: { user: user_attributes, format: :json }
-        user_response = JSON.parse(response.body, symbolize_names: true)
 
         expect(response.status).to eq 422
-        expect(user_response).to have_key(:errors)
-        expect(user_response[:errors][:email]).to include "can't be blank"
+        expect(json_response).to have_key(:errors)
+        expect(json_response[:errors][:email]).to include "can't be blank"
       end
     end
   end
@@ -57,8 +52,7 @@ RSpec.describe Api::V1::UsersController do
                                  format: :json }
 
         expect(response.status).to eq 200
-        user_response = JSON.parse(response.body, symbolize_names: true)
-        expect(user_response[:email]).to eq 'newmail@example.com'
+        expect(json_response[:email]).to eq 'newmail@example.com'
       end
     end
 
@@ -70,9 +64,8 @@ RSpec.describe Api::V1::UsersController do
                                  format: :json }
 
         expect(response.status).to eq 422
-        user_response = JSON.parse(response.body, symbolize_names: true)
-        expect(user_response).to have_key(:errors)
-        expect(user_response[:errors][:email]).to include 'is invalid'
+        expect(json_response).to have_key(:errors)
+        expect(json_response[:errors][:email]).to include 'is invalid'
       end
     end
   end

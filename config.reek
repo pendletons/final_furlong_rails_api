@@ -1,0 +1,24 @@
+IrresponsibleModule:
+  enabled: false
+
+'app/controllers/api/':
+  UncommunicativeModuleName:
+    enabled: false
+'config':
+  UncommunicativeVariableName:
+    enabled: false
+  FeatureEnvy:
+    enabled: false
+'db':
+  FeatureEnvy:
+    enabled: false
+'db/migrate':
+  UncommunicativeVariableName:
+    enabled: false
+  FeatureEnvy:
+    enabled: false
+  TooManyStatements:
+    enabled: false
+'spec/support':
+  DuplicateMethodCall:
+    enabled: false
