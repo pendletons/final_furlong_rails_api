@@ -2,9 +2,27 @@ AllCops:
   DisplayCopNames: true
   Exclude:
   - config/puma.rb
+  - db/schema.rb
+
+Rails:
+  Enabled: true
+
+Rails/SaveBang:
+  Enabled: true
+  Exclude:
+  - spec/**/*.rb
 
 Style/Documentation:
   Enabled: false
 
+Style/VariableNumber:
+  Enabled: false # currently buggy
+
 Metrics/LineLength:
   Max: 120
+  Exclude:
+  - config/initializers/**/*.rb
+
+Metrics/MethodLength:
+  Exclude:
+  - db/migrate/**/*.rb

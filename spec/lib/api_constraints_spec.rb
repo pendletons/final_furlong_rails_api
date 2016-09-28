@@ -20,7 +20,7 @@ RSpec.describe ApiConstraints do
         api_constraints_v2 = ApiConstraints.new(version: 2, default: true)
 
         result = api_constraints_v2.matches?(request)
-          
+
         expect(result).to be true
       end
     end
