@@ -19,6 +19,7 @@ gem 'devise'
 gem 'haml-rails'
 
 gem 'good_migrations'
+gem 'rails_best_practices'
 
 group :development, :test do
   gem 'byebug', platform: :mri
