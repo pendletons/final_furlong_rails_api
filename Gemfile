@@ -15,8 +15,12 @@ gem 'puma', '~> 3.0'
 # gem 'rack-cors'
 
 gem 'devise'
+gem 'valid_email'
 
 gem 'haml-rails'
+
+gem 'trailblazer-rails'
+gem 'reform', '~> 2.1.0'
 
 gem 'good_migrations'
 gem 'rails_best_practices'

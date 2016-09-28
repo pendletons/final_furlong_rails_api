@@ -13,7 +13,7 @@ RSpec.describe Api::V1::UsersController do
       user = create :user
       get :show, params: { id: user, format: :json }
 
-      expect(json_response[:email]).to eql user.email
+      expect(json_response[:email]).to eq user.email
     end
   end
 
@@ -37,8 +37,7 @@ RSpec.describe Api::V1::UsersController do
         post :create, params: { user: user_attributes, format: :json }
 
         expect(response.status).to eq 422
-        expect(json_response).to have_key(:errors)
-        expect(json_response[:errors][:email]).to include "can't be blank"
+        expect(json_response[:errors]).to eq(email: ["can't be blank", 'is invalid'])
       end
     end
   end
@@ -56,7 +55,7 @@ RSpec.describe Api::V1::UsersController do
       end
     end
 
-    context 'with invalid info' do
+    context 'with invalid email' do
       it 'renders an errors json' do
         user = create :user
         patch :update, params: { id: user,
@@ -64,8 +63,20 @@ RSpec.describe Api::V1::UsersController do
                                  format: :json }
 
         expect(response.status).to eq 422
-        expect(json_response).to have_key(:errors)
-        expect(json_response[:errors][:email]).to include 'is invalid'
+        expect(json_response[:errors]).to eq(email: ['is invalid', 'is invalid'])
+      end
+    end
+
+    context 'with invalid password' do
+      it 'renders an errors json' do
+        user = create :user
+        patch :update, params: { id: user,
+                                 user: { password: 'pass12345',
+                                         password_confirmation: 'abcd9876' },
+                                 format: :json }
+
+        expect(response.status).to eq 422
+        expect(json_response[:errors]).to eq(password_confirmation: ["doesn't match Password"])
       end
     end
   end

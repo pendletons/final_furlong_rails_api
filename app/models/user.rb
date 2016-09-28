@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :auth_token, uniqueness: true
+  before_save :generate_authentication_token
 
-  before_create :generate_authentication_token
+  validates :auth_token, uniqueness: true
+  validates :email, email: true
 
   def generate_authentication_token
     loop do
