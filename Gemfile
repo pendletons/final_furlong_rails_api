@@ -64,6 +64,7 @@ group :test do
   gem 'shoulda'
   gem 'shoulda-matchers'
   gem 'rspec-collection_matchers'
+  gem 'rails-controller-testing'
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'poltergeist'

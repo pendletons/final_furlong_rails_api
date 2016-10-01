@@ -31,6 +31,8 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
+  config.infer_base_class_for_anonymous_controllers = false
+
   config.filter_rails_from_backtrace!
   # Filter lines from Rails gems in backtraces.
   # config.filter_gems_from_backtrace("gem name")
