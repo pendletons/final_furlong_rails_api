@@ -12,8 +12,18 @@ Rails/SaveBang:
   Exclude:
   - spec/**/*.rb
 
+Lint/NonLocalExitFromIterator:
+  Exclude:
+  - app/controllers/api/**/*.rb
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
 Style/Documentation:
   Enabled: false
+
+Style/IndentationConsistency:
+  EnforcedStyle: rails
 
 Style/VariableNumber:
   Enabled: false # currently buggy
