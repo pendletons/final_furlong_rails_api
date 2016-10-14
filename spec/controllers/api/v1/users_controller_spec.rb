@@ -46,6 +46,7 @@ RSpec.describe Api::V1::UsersController do
     context 'with valid info' do
       it 'updates the user and renders the json representation' do
         user = create :user
+        api_authorization_header user.auth_token
         patch :update, params: { id: user,
                                  user: { email: 'newmail@example.com' },
                                  format: :json }
@@ -58,6 +59,7 @@ RSpec.describe Api::V1::UsersController do
     context 'with invalid email' do
       it 'renders an errors json' do
         user = create :user
+        api_authorization_header user.auth_token
         patch :update, params: { id: user,
                                  user: { email: 'bademail.com' },
                                  format: :json }
@@ -70,6 +72,7 @@ RSpec.describe Api::V1::UsersController do
     context 'with invalid password' do
       it 'renders an errors json' do
         user = create :user
+        api_authorization_header user.auth_token
         patch :update, params: { id: user,
                                  user: { password: 'pass12345',
                                          password_confirmation: 'abcd9876' },
@@ -84,6 +87,8 @@ RSpec.describe Api::V1::UsersController do
   describe 'DELETE #destroy' do
     it 'deletes the user' do
       user = create :user
+      api_authorization_header user.auth_token
+
       expect { delete :destroy, params: { id: user, format: :json } }
         .to change { User.count }.from(1).to(0)
 
