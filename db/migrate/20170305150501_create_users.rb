@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :status_id, limit: 2
       t.boolean :admin, null: false, default: false
       t.string :auth_token
+      t.datetime :auth_token_created_at
       t.string :password_reset_token
       t.datetime :password_reset_sent_at
       t.integer :sign_in_count, default: 0
@@ -24,6 +25,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     add_index :users, :email, unique: true
     add_index :users, :slug, unique: true
     add_index :users, :auth_token, unique: true
+    add_index :users, [:auth_token, :auth_token_created_at]
     add_index :users, :status_id
   end
 end

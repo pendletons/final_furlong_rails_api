@@ -6,6 +6,9 @@ Rails.application.routes.draw do
                   path: "/" do
     scope module: :v1,
           constraints: ApiConstraints.new(version: 1, default: true) do
+      post "/sign_in" => "sessions#create"
+      delete "/sign_out" => "sessions#destroy"
+      resources :users
     end
   end
 end

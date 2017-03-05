@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170305150501) do
     t.integer  "status_id",              limit: 2
     t.boolean  "admin",                              default: false, null: false
     t.string   "auth_token"
+    t.datetime "auth_token_created_at"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.integer  "sign_in_count",                      default: 0
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170305150501) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
+    t.index ["auth_token", "auth_token_created_at"], name: "index_users_on_auth_token_and_auth_token_created_at", using: :btree
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
