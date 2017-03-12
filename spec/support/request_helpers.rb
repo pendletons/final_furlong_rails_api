@@ -1,4 +1,6 @@
+# frozen_string_literal: true
 module Request
+  # :reek:DataClump
   module ApiUrlHelpers
     def api_get_path(path, *args)
       get "http://api.finalfurlong.dev/#{path}", *args
@@ -12,6 +14,7 @@ module Request
       put "http://api.finalfurlong.dev/#{path}", *args
     end
 
+    # :reek:LongParameterList { max_params: 4 }
     def api_delete_path(path:, params: {}, headers: {}, auth_token: nil)
       headers[:Authorization] = "Token #{auth_token}" if auth_token
       delete "http://api.finalfurlong.dev/#{path}", params: params, headers: headers
@@ -45,9 +48,11 @@ module Request
       request.headers["Accept"] = "application/vnd.finalfurlong.v#{version}"
     end
 
+    # :reek:FeatureEnvy
     def api_response_format(format = Mime[:json])
-      request.headers["Accept"] = "#{request.headers['Accept']},#{format}"
-      request.headers["Content-Type"] = format.to_s
+      headers = request.headers
+      headers["Accept"] = "#{headers['Accept']},#{format}"
+      headers["Content-Type"] = format.to_s
     end
 
     def include_default_accept_headers

@@ -1,14 +1,23 @@
+require: rubocop-rspec
+
 AllCops:
   DisplayCopNames: true
+  TargetRubyVersion: 2.3
   Exclude:
   - config/puma.rb
   - db/schema.rb
+
+Rails:
+  Enabled: true
 
 Style/Documentation:
   Enabled: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/VariableNumber:
+  EnforcedStyle: snake_case
 
 Metrics/LineLength:
   Max: 120

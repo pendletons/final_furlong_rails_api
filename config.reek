@@ -1,0 +1,16 @@
+IrresponsibleModule:
+  enabled: false
+
+"app/controllers/api/":
+  UncommunicativeModuleName:
+    enabled: false
+"config":
+  UncommunicativeVariableName:
+    enabled: false
+"db/migrate/":
+  FeatureEnvy:
+    enabled: false
+  TooManyStatements:
+    enabled: false
+  UncommunicativeVariableName:
+    enabled: false

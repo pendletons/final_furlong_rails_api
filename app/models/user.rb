@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def invalidate_auth_token
-    update_columns(auth_token: nil, auth_token_created_at: nil)
+    update_attributes(auth_token: nil, auth_token_created_at: nil)
   end
 
   private
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   def generate_token(column)
     loop do
       self[column] = SecureRandom.urlsafe_base64
-      break if self.class.where(column => self[column]).count == 0
+      break if self.class.where(column => self[column]).count.zero?
     end
   end
 end
