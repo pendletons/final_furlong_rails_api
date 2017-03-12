@@ -2,9 +2,21 @@ AllCops:
   DisplayCopNames: true
   Exclude:
   - config/puma.rb
+  - db/schema.rb
 
 Style/Documentation:
   Enabled: false
 
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
 Metrics/LineLength:
   Max: 120
+
+Metrics/AbcSize:
+  Exclude:
+  - db/migrate/**/*.rb
+
+Metrics/MethodLength:
+  Exclude:
+  - db/migrate/**/*.rb
