@@ -1,5 +1,14 @@
+FeatureEnvy:
+  exclude:
+    - "ApplicationController"
+InstanceVariableAssumption:
+  exclude:
+    - "ApplicationController"
 IrresponsibleModule:
   enabled: false
+NilCheck:
+  exclude:
+    - "ApplicationController"
 
 "app/controllers/api/":
   UncommunicativeModuleName:

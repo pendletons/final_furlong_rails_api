@@ -8,6 +8,8 @@ gem "puma", "~> 3.0"
 # Use ActiveModel has_secure_password
 gem "bcrypt", "~> 3.1.7"
 
+gem "jwt"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -18,6 +20,7 @@ gem "good_migrations"
 
 group :development, :test do
   gem "byebug", platform: :mri
+  gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "rspec-rails", "~> 3.4"
   gem "timecop", git: "https://github.com/travisjeffery/timecop"
