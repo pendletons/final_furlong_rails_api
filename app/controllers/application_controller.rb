@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::Base
+  protect_from_forgery unless: -> { request.format.json? }
+
   before_action :authenticate
 
   def logged_in?
@@ -10,7 +12,7 @@ class ApplicationController < ActionController::Base
     return @current_user if @current_user
     return unless auth_present?
 
-    user = User.find(auth["user"])
+    user = User.find(auth["user_id"])
     @current_user ||= user if user
   end
 
@@ -21,10 +23,10 @@ class ApplicationController < ActionController::Base
   private
 
   def auth_present?
-    authorization = request.env.fetch("HTTP_AUTHORIZATION", "")
+    authorization = request.headers["Authorization"]
     return false if authorization.blank?
 
-    authorization.scan(/Bearer/).flatten.first # request
+    authorization.scan(/Bearer/).flatten.first
   end
 
   def auth
@@ -32,6 +34,6 @@ class ApplicationController < ActionController::Base
   end
 
   def token
-    request.env["HTTP_AUTHORIZATION"].scan(/Bearer(.*)$/).flatten.last
+    request.headers["Authorization"].split(" ").last
   end
 end

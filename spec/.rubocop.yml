@@ -1,8 +1,11 @@
 inherit_from: ../.rubocop.yml
 
-Style/BlockDelimiters:
+Metrics/BlockLength:
   Enabled: false
 
 RSpec/DescribeClass:
   Exclude:
   - requests/**/*_spec.rb
+
+Style/BlockDelimiters:
+  Enabled: false
