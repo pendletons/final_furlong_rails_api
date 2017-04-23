@@ -11,6 +11,7 @@ gem "bcrypt", "~> 3.1.7"
 
 gem "active_model_serializers"
 gem "jwt"
+gem "pundit"
 
 gem "good_migrations"
 

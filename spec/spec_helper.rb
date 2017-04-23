@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 require "simplecov"
-SimpleCov.start "rails" do
-  track_files "{app,lib}/**/*.rb"
-end
-SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter]
-
-require "codecov"
-SimpleCov.formatter << SimpleCov::Formatter::Codecov if ENV["ENABLE_CODECOV"]
 
 require "support/factory_girl"
 require "codeclimate-test-reporter"
