@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     return @current_user if @current_user
     return unless auth_present?
 
-    user = User.find(auth["user_id"])
+    user = User.find(auth["user"])
     @current_user ||= user if user
   end
 
