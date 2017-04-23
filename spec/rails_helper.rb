@@ -22,6 +22,7 @@ require "rspec/rails"
 # require only the support files necessary.
 #
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+require "support/database_cleaner"
 require "support/request_helpers"
 require "shared_examples/api_contexts"
 
