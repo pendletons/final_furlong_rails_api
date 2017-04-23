@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.shared_context "a failed create" do
   it "returns an unprocessable entity (422) status code" do
     expect(response.status).to eq(422)
@@ -13,6 +14,12 @@ end
 
 RSpec.shared_context "a response with errors" do
   it "returns the error messages" do
+    expect(json_response[:errors]).to eq(errors)
+  end
+end
+
+RSpec.shared_context "a response with an error" do
+  it "returns the error message" do
     expect(json_response[:error]).to eq(error)
   end
 end

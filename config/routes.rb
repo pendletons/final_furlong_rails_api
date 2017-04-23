@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative "../lib/api_constraints"
 
 Rails.application.routes.draw do
@@ -8,8 +9,7 @@ Rails.application.routes.draw do
     scope module: :v1,
           constraints: ApiConstraints.new(version: 1, default: true) do
       post "/sign_in" => "sessions#create"
-      delete "/sign_out" => "sessions#destroy"
-      resources :users
+      resources :users, only: [:show]
     end
   end
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Request
   # :reek:DataClump
   module ApiUrlHelpers
@@ -14,10 +15,8 @@ module Request
       put "http://api.finalfurlong.dev/#{path}", *args
     end
 
-    # :reek:LongParameterList { max_params: 4 }
-    def api_delete_path(path:, params: {}, headers: {}, auth_token: nil)
-      headers[:Authorization] = "Token #{auth_token}" if auth_token
-      delete "http://api.finalfurlong.dev/#{path}", params: params, headers: headers
+    def api_delete_path(path, *args)
+      delete "http://api.finalfurlong.dev/#{path}", *args
     end
   end
 
