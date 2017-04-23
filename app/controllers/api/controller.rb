@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Api
   class Controller < ::ApplicationController
     class AccessDeniedError < StandardError

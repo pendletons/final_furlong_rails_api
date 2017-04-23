@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.shared_context "a failed create" do
   it "returns an unprocessable entity (422) status code" do
     expect(response.status).to eq(422)
