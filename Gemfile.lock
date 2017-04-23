@@ -37,6 +37,11 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.10.5)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.2)
     activejob (5.0.0.1)
       activesupport (= 5.0.0.1)
       globalid (>= 0.3.6)
@@ -85,6 +90,8 @@ GEM
     capybara-screenshot (1.0.14)
       capybara (>= 1.0, < 3)
       launchy
+    case_transform (0.2)
+      activesupport
     cliver (0.3.2)
     codeclimate-test-reporter (0.6.0)
       simplecov (>= 0.7.1, < 1.0.0)
@@ -142,6 +149,7 @@ GEM
     i18n (0.7.0)
     ice_nine (0.11.2)
     json (2.0.2)
+    jsonapi-renderer (0.1.2)
     jwt (1.5.6)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -358,6 +366,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller

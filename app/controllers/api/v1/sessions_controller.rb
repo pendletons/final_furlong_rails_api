@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Api
   module V1
-    class SessionsController < BaseController
+    class SessionsController < Controller
       skip_before_action :authenticate, only: :create
 
       def create
@@ -24,7 +24,7 @@ module Api
       end
 
       def login_params
-        params[:user_login]
+        params[:auth]
       end
     end
   end
