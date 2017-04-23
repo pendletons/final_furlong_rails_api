@@ -2,26 +2,25 @@
 
 module Api
   class Controller < ::ApplicationController
-    class AccessDeniedError < StandardError
-      def initialize(message = t("not_authorized"))
-        super(message)
-      end
-    end
+    rescue_from ActionController::ParameterMissing, with: :parameter_missing
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+    rescue_from ActiveRecord::RecordNotFound, with: :not_found
+    rescue_from Pundit::NotAuthorizedError, with: :acess_denied
 
-    rescue_from ActionController::ParameterMissing do |exception|
+    def parameter_missing(exception)
       render(json: { error: exception.to_s }, status: :bad_request)
     end
 
-    rescue_from ActiveRecord::RecordInvalid do |exception|
+    def record_invalid(exception)
       render(json: { errors: exception.record.errors }, status: :unprocessable_entity)
     end
 
-    rescue_from ActiveRecord::RecordNotFound do
+    def not_found
       render(json: { error: t("not_found") }, status: :not_found)
     end
 
-    rescue_from AccessDeniedError do |exception|
-      render(json: { error: exception.message }, status: :forbidden)
+    def access_denied
+      render(json: { error: t("not_authorized") }, status: :forbidden)
     end
   end
 end

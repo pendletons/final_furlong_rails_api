@@ -232,6 +232,8 @@ GEM
       debug_inspector (~> 0.0.1)
     procto (0.0.3)
     puma (3.6.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
@@ -398,6 +400,7 @@ DEPENDENCIES
   poltergeist
   pretty_backtrace
   puma (~> 3.0)
+  pundit
   query_reviewer!
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-footnotes
