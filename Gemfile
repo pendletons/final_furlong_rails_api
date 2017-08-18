@@ -18,6 +18,7 @@ gem "good_migrations"
 group :development, :test do
   gem "byebug", platform: :mri
   gem "dotenv-rails"
+  gem "factory_girl_instruments"
   gem "factory_girl_rails"
   gem "rspec-rails", "~> 3.4"
   gem "timecop", git: "https://github.com/travisjeffery/timecop"

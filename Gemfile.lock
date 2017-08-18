@@ -67,6 +67,7 @@ GEM
     arel (7.1.4)
     ast (2.3.0)
     bcrypt (3.1.11)
+    bcrypt (3.1.11-x86-mingw32)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -123,12 +124,16 @@ GEM
     eventmachine (1.0.9.1)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
+    factory_girl_instruments (1.0.1)
+      activerecord (>= 4.0)
+      factory_girl (~> 4.5)
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     faker (1.6.6)
       i18n (~> 0.5)
     ffi (1.9.14)
+    ffi (1.9.14-x86-mingw32)
     flay (2.8.1)
       erubis (~> 2.7.0)
       path_expander (~> 1.0)
@@ -218,11 +223,14 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
+    nokogiri (1.7.1-x86-mingw32)
+      mini_portile2 (~> 2.1.0)
     parallel (1.9.0)
     parser (2.3.3.1)
       ast (~> 2.2)
     path_expander (1.0.0)
     pg (0.18.4)
+    pg (0.18.4-x86-mingw32)
     poltergeist (1.10.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -335,6 +343,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.11)
+    sqlite3 (1.3.11-x86-mingw32)
+    sqlite3 (1.3.11-x86-mswin32-60)
     sqlite3-ruby (1.3.3)
       sqlite3 (>= 1.3.3)
     thin (1.6.2)
@@ -346,6 +356,8 @@ GEM
     tilt (2.0.5)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2017.2)
+      tzinfo (>= 1.0.0)
     unicode-display_width (1.2.1)
     uniform_notifier (1.10.0)
     unparser (0.2.5)
@@ -365,6 +377,9 @@ GEM
 
 PLATFORMS
   ruby
+  x64-unknown
+  x86-mingw32
+  x86-mswin32
 
 DEPENDENCIES
   active_model_serializers
@@ -382,6 +397,7 @@ DEPENDENCIES
   dirty
   dotenv-rails
   email_spec
+  factory_girl_instruments
   factory_girl_rails
   faker
   flay
