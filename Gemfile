@@ -13,7 +13,10 @@ gem "active_model_serializers"
 gem "jwt"
 gem "pundit"
 
+gem "activerecord-clean-db-structure"
 gem "good_migrations"
+gem "marginalia" # logging SQL query code location
+gem "scenic"
 
 group :development, :test do
   gem "byebug", platform: :mri
