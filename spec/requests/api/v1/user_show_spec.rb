@@ -13,7 +13,7 @@ RSpec.describe "Showing User" do
   it_behaves_like "an authenticated request"
 
   context "when authenticated" do
-    let(:jwt) { Auth.issue(user_id: user.id) }
+    let(:jwt) { Auth.issue(user: user.id) }
 
     context "when id doesn't match a user" do
       let(:id) { 0 }
