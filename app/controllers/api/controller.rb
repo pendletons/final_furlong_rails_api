@@ -19,8 +19,8 @@ module Api
       render(json: { error: t("not_found") }, status: :not_found)
     end
 
-    def access_denied
-      render(json: { error: t("not_authorized") }, status: :forbidden)
-    end
+    # def access_denied
+    #   render(json: { error: t("not_authorized") }, status: :forbidden)
+    # end
   end
 end
