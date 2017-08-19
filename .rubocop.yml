@@ -6,6 +6,7 @@ AllCops:
   Exclude:
   - config/puma.rb
   - db/schema.rb
+  - bin/**
 
 Rails:
   Enabled: true
