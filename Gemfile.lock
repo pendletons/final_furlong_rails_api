@@ -435,7 +435,7 @@ DEPENDENCIES
   pretty_backtrace
   puma (~> 3.0)
   pundit
-  rails (~> 5.1.0.rc2)
+  rails (~> 5.1.3)
   rails-footnotes
   rspec-collection_matchers
   rspec-rails (~> 3.4)
