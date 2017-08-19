@@ -14,6 +14,6 @@ class Auth
   end
 
   def self.auth_secret
-    ENV["AUTH_SECRET"]
+    Rails.application.secrets.auth_token
   end
 end
