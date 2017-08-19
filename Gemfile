@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "~> 5.0.0", ">= 5.0.0.1"
+gem "rails", "~> 5.1.3"
 
 gem "pg"
 gem "puma", "~> 3.0"
@@ -13,11 +13,15 @@ gem "active_model_serializers"
 gem "jwt"
 gem "pundit"
 
+gem "activerecord-clean-db-structure"
 gem "good_migrations"
+gem "marginalia" # logging SQL query code location
+gem "scenic"
 
 group :development, :test do
   gem "byebug", platform: :mri
   gem "dotenv-rails"
+  gem "factory_girl_instruments"
   gem "factory_girl_rails"
   gem "rspec-rails", "~> 3.4"
   gem "timecop", git: "https://github.com/travisjeffery/timecop"
@@ -35,7 +39,6 @@ group :development do
   gem "mailcatcher"
   gem "meta_request"
   gem "pretty_backtrace", require: false
-  gem "query_reviewer", git: "https://github.com/nesquena/query_reviewer"
   gem "rails-footnotes"
   gem "rubocop"
   gem "rubocop-rspec"

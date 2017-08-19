@@ -13,9 +13,9 @@ RSpec.describe "Showing User" do
   it_behaves_like "an authenticated request"
 
   context "when authenticated" do
-    let(:jwt) { Auth.issue(user_id: user.id) }
+    let(:jwt) { Auth.issue(user: user.id) }
 
-    context "when id don't match a user" do
+    context "when id doesn't match a user" do
       let(:id) { 0 }
 
       it "fails" do
@@ -31,12 +31,6 @@ RSpec.describe "Showing User" do
 
       it_behaves_like "a show request" do
         before { authorized_path }
-      end
-
-      it "succeeds" do
-        authorized_path
-
-        expect(response.status).to eq 200
       end
     end
   end

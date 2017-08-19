@@ -5,6 +5,7 @@ module Api
     class SessionsController < Controller
       skip_before_action :authenticate, only: :create
       skip_after_action :verify_authorized
+      skip_after_action :verify_policy_scoped
 
       def create
         user = User.find_by(email: auth_params[:email])
