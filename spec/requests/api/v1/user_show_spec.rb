@@ -8,7 +8,7 @@ RSpec.describe "Showing User" do
   let(:authorized_path) { api_get_path(api_user_path(id), headers) }
   let(:headers) { { headers: { "HTTP_AUTHORIZATION" => "Bearer #{jwt}" } } }
   let(:user) { create(:user) }
-  let(:id) { user.id }
+  let(:id) { user.stable_id }
 
   it_behaves_like "an authenticated request"
 
