@@ -2,6 +2,9 @@
 
 class ApplicationController < ActionController::Base
   include Pundit
+
+  attr_reader :current_stable
+
   after_action :verify_authorized, except: :index
   after_action :verify_policy_scoped, only: :index
 
@@ -17,8 +20,9 @@ class ApplicationController < ActionController::Base
     return @current_user if @current_user
     return unless auth_present?
 
-    user = User.find(auth["user"])
-    @current_user ||= user if user
+    return unless (user = load_user)
+    @current_user ||= user
+    @current_stable ||= user.stable_id
   end
 
   def authenticate
@@ -26,6 +30,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def load_user
+    User.find(auth["user"])
+  end
 
   def auth_present?
     authorization = request.headers["Authorization"]
