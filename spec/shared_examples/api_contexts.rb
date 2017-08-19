@@ -25,12 +25,16 @@ RSpec.shared_examples "a response with an error" do
 end
 
 RSpec.shared_examples "a show request with a root" do |root|
+  it_behaves_like "a successful request"
+
   it "returns the specified item" do
     expect(json_response[root][:id]).to eq(id)
   end
 end
 
 RSpec.shared_examples "a show request" do
+  it_behaves_like "a successful request"
+
   it "returns the specified item" do
     expect(json_response[:id]).to eq(id)
   end
