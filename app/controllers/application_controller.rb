@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     return unless (user = load_user)
     @current_user ||= user
-    @current_stable ||= user.id
+    @current_stable ||= user.stable_id
   end
 
   def authenticate
@@ -32,8 +32,7 @@ class ApplicationController < ActionController::Base
   private
 
   def load_user
-    user_id = auth["user"]
-    User.find(user_id)
+    User.find(auth["user"])
   end
 
   def auth_present?

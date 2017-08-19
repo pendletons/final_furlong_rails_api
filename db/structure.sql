@@ -1,6 +1,3 @@
-
--- PostgreSQL database dump
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 
@@ -56,7 +53,8 @@ CREATE TABLE users (
     current_sign_in_ip character varying,
     last_sign_in_ip character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    stable_id integer DEFAULT 0
 );
 
 ALTER TABLE ONLY ar_internal_metadata
@@ -68,6 +66,10 @@ ALTER TABLE ONLY schema_migrations
 -- Name: index_users_on_email; Type: INDEX
 
 CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
+
+-- Name: index_users_on_stable_id; Type: INDEX
+
+CREATE UNIQUE INDEX index_users_on_stable_id ON users USING btree (stable_id);
 
 -- Name: index_users_on_status_id; Type: INDEX
 
@@ -82,5 +84,6 @@ CREATE UNIQUE INDEX index_users_on_username ON users USING btree (username);
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
-('20170305150501');
+('20170305150501'),
+('20170819160635');
 
