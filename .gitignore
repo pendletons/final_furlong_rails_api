@@ -22,3 +22,6 @@
 
 coverage/
 spec/examples.txt
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

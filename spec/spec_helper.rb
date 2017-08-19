@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 require "simplecov"
-
 require "support/factory_girl"
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

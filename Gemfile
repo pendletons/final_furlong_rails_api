@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "~> 5.0.0", ">= 5.0.0.1"
+gem "rails", "~> 5.1.3"
 
 gem "pg"
 gem "puma", "~> 3.0"
@@ -39,7 +39,6 @@ group :development do
   gem "mailcatcher"
   gem "meta_request"
   gem "pretty_backtrace", require: false
-  gem "query_reviewer", git: "https://github.com/nesquena/query_reviewer"
   gem "rails-footnotes"
   gem "rubocop"
   gem "rubocop-rspec"
