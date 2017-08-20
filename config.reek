@@ -13,6 +13,9 @@ NilCheck:
 "app/controllers/api/":
   UncommunicativeModuleName:
     enabled: false
+"app/serializers":
+  DuplicateMethodCall:
+    enabled: false
 "config":
   UncommunicativeVariableName:
     enabled: false
