@@ -66,6 +66,7 @@ group :test do
   gem "moniker"
   gem "mutant-rspec"
   gem "poltergeist"
+  gem "pundit-matchers", "~> 1.3.1"
   gem "rspec-collection_matchers"
   gem "shoulda"
   gem "shoulda-matchers"
