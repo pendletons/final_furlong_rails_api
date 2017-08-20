@@ -9,16 +9,20 @@ gem "puma", "~> 3.0"
 # Use ActiveModel has_secure_password
 gem "bcrypt", "~> 3.1.7"
 
+# API things
 gem "active_model_serializers"
 gem "jwt"
 gem "pundit"
 
+# Database things
 gem "activerecord-clean-db-structure"
+gem "friendly_id"
 gem "good_migrations"
 gem "marginalia" # logging SQL query code location
 gem "scenic"
 
 group :development, :test do
+  gem "awesome_print"
   gem "byebug", platform: :mri
   gem "dotenv-rails"
   gem "factory_girl_instruments"
