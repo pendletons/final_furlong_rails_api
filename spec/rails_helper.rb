@@ -25,7 +25,8 @@ require "rspec/rails"
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 require "support/database_cleaner"
 require "support/request_helpers"
-require "shared_examples/api_contexts"
+require "shared/contexts/api"
+require "shared/examples/api"
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -62,7 +63,6 @@ RSpec.configure do |config|
   config.include Request::JsonHelpers, type: :controller
   config.include Request::HeadersHelpers, type: :controller
   config.include Request::JsonHelpers, type: :request
-  config.include Request::ApiUrlHelpers, type: :request
 
   config.before(:each, type: :controller) do
     include_default_accept_headers

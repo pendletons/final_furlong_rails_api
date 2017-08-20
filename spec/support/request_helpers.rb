@@ -1,25 +1,6 @@
 # frozen_string_literal: true
 
 module Request
-  # :reek:DataClump
-  module ApiUrlHelpers
-    def api_get_path(path, *args)
-      get "http://api.finalfurlong.dev/#{path}", *args
-    end
-
-    def api_post_path(path, *args)
-      post "http://api.finalfurlong.dev/#{path}", *args
-    end
-
-    def api_put_path(path, *args)
-      put "http://api.finalfurlong.dev/#{path}", *args
-    end
-
-    def api_delete_path(path, *args)
-      delete "http://api.finalfurlong.dev/#{path}", *args
-    end
-  end
-
   module JsonHelpers
     def json_response
       @json_response ||= JSON.parse(response.body, symbolize_names: true)

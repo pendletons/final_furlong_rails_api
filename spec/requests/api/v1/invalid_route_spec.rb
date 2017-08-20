@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-require "shared_examples/api_contexts"
 
-RSpec.describe "Invalid Route" do
-  let(:path) { api_get_path("api/foo/bar") }
-
+RSpec.describe "GET /foo/bar" do
   it "fails" do
-    path
+    get "/api/foo/bar"
 
     expect(response.status).to eq 400
     expect(json_error).to eq I18n.t("invalid_url", path: "/api/foo/bar")
