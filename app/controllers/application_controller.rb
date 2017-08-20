@@ -3,14 +3,16 @@
 class ApplicationController < ActionController::Base
   include Pundit
 
-  attr_reader :current_stable
-
-  after_action :verify_authorized, except: :index
-  after_action :verify_policy_scoped, only: :index
+  rescue_from ActionController::RoutingError, with: :invalid_route
 
   protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
+  attr_reader :current_stable
+
   before_action :authenticate
+
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   def logged_in?
     !current_user.nil?
@@ -27,6 +29,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     render json: { error: t("access_denied") }, status: :unauthorized unless logged_in?
+  end
+
+  def invalid_route
+    render json: { error: t("invalid_url", path: request.path) }.to_json, status: :bad_request
   end
 
   private

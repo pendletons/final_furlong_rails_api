@@ -13,4 +13,6 @@ Rails.application.routes.draw do
       resources :users, only: [:show]
     end
   end
+
+  match "*path" => "errors#show", via: :all
 end
