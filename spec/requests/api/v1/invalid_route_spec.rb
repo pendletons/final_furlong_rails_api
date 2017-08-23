@@ -3,10 +3,10 @@
 require "rails_helper"
 
 RSpec.describe "GET /foo/bar" do
-  it "fails" do
-    get "/api/foo/bar"
+  let(:error) { I18n.t("invalid_url", path: "/api/foo/bar") }
 
-    expect(response.status).to eq 400
-    expect(json_error).to eq I18n.t("invalid_url", path: "/api/foo/bar")
-  end
+  before { get "/api/foo/bar" }
+
+  it_behaves_like "a bad request"
+  it_behaves_like "a response with an error"
 end

@@ -12,5 +12,5 @@ RSpec.shared_context "with a logged-in user" do
 end
 
 RSpec.shared_context "with an admin user" do
-  let(:user) { create(:user, admin: true) }
+  let(:user) { create(:user, :admin) }
 end
