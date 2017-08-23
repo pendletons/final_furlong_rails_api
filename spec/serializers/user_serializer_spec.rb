@@ -7,9 +7,8 @@ RSpec.describe UserSerializer do
   let(:user) { create(:user) }
 
   it "renders correctly" do
-    expect(serializer.as_json).to eq(id: user.id,
+    expect(serializer.as_json).to eq(id: user.stable_id,
                                      name: user.name,
-                                     stable_id: user.stable_id,
                                      username: user.username)
   end
 end
