@@ -31,11 +31,10 @@ class Horse < ApplicationRecord
   def slugged_name
     return name if name.present?
 
-    slug_parts = if dam
-                   [dam_name, yob]
-                 else
-                   [SecureRandom.uuid[0, 10], yob]
-                 end
-    slug_parts.join("-")
+    [unique_first_slug, yob].join("-")
+  end
+
+  def unique_first_slug
+    dam ? dam_name : [SecureRandom.uuid[0, 10]]
   end
 end
