@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe "GET /users/:id" do
   let(:path) { api_user_path(id) }
-  let(:id) { user.stable_id }
+  let(:id) { user.id }
 
   include_context "with a regular user"
 
