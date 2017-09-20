@@ -61,11 +61,6 @@ class ApplicationPolicy
 
     # Replaces the current FROM entity with a union of the given scopes.
     def union(scopes)
-      # Note that scope.none doesn't behave correctly when used as an IN
-      # e.g. `where claim_id: Claim.none` creates a clause
-      #      `"claim_id" IN (SELECT "claims"."id" FROM "claims")`
-      # therefore we use `where "1 = 0"` instead.
-      return scope.where "1 = 0" if scopes.empty?
       return scopes.first if scopes.size == 1
       scope.from "(#{scopes.map(&:to_sql).join(' UNION ')}) #{scope.table_name}"
     end
