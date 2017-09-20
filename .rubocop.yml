@@ -29,8 +29,12 @@ Metrics/AbcSize:
   - db/migrate/**/*.rb
 
 Metrics/MethodLength:
+  Max: 5
   Exclude:
   - db/migrate/**/*.rb
+
+Metrics/ParameterLists:
+  Max: 4
 
 # NOTE: Remove this once CodeClimate stops being dumb
 Style/PercentLiteralDelimiters:
