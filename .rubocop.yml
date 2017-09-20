@@ -2,6 +2,7 @@ require: rubocop-rspec
 
 AllCops:
   DisplayCopNames: true
+  DisplayStyleGuide: true
   TargetRubyVersion: 2.3
   Exclude:
   - config/puma.rb
@@ -28,5 +29,22 @@ Metrics/AbcSize:
   - db/migrate/**/*.rb
 
 Metrics/MethodLength:
+  Max: 5
   Exclude:
   - db/migrate/**/*.rb
+
+Metrics/ParameterLists:
+  Max: 4
+
+# NOTE: Remove this once CodeClimate stops being dumb
+Style/PercentLiteralDelimiters:
+  # Specify the default preferred delimiter for all types with the 'default' key
+  # Override individual delimiters (even with default specified) by specifying
+  # an individual key
+  PreferredDelimiters:
+    default: ()
+    '%i': '[]'
+    '%I': '[]'
+    '%r': '{}'
+    '%w': '[]'
+    '%W': '[]'

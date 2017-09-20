@@ -1,5 +1,23 @@
 # frozen_string_literal: true
 
+RSpec.shared_examples "a not found request" do
+  let(:id) { -1 }
+
+  it "returns a not found (404) status code" do
+    expect(response.status).to eq(404)
+  end
+
+  it "returns a not found error message" do
+    expect(json_error).to eq I18n.t("not_found")
+  end
+end
+
+RSpec.shared_examples "a bad request" do
+  it "returns a bad request (400) status code" do
+    expect(response.status).to eq(400)
+  end
+end
+
 RSpec.shared_examples "a failed create" do
   it "returns an unprocessable entity (422) status code" do
     expect(response.status).to eq(422)
@@ -47,15 +65,13 @@ RSpec.shared_examples "a successful request" do
 end
 
 RSpec.shared_examples "an authenticated request" do
-  it "does not allow non-logged in users" do
-    path
+  before { get path }
 
+  it "does not allow non-logged in users" do
     expect(response.status).to eq 401
   end
 
   it "returns acccess denied error" do
-    path
-
     expect(json_error).to eq "Access denied"
   end
 end

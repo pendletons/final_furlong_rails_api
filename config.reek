@@ -1,6 +1,7 @@
 FeatureEnvy:
   exclude:
     - "ApplicationController"
+    - "ApplicationPolicy"
 InstanceVariableAssumption:
   exclude:
     - "ApplicationController"
@@ -9,9 +10,15 @@ IrresponsibleModule:
 NilCheck:
   exclude:
     - "ApplicationController"
+UtilityFunction:
+  exclude:
+    - "ApplicationPolicy"
 
 "app/controllers/api/":
   UncommunicativeModuleName:
+    enabled: false
+"app/serializers":
+  DuplicateMethodCall:
     enabled: false
 "config":
   UncommunicativeVariableName:

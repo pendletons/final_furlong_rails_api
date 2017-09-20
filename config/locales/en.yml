@@ -33,6 +33,7 @@ en:
   access_denied: "Access denied"
   not_authorized: "You are not authorized to perform that action"
   not_found: "Not found"
+  invalid_url: "Not found: %{path}"
   api:
     v1:
       sessions:

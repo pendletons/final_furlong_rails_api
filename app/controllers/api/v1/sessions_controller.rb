@@ -8,18 +8,19 @@ module Api
       skip_after_action :verify_policy_scoped
 
       def create
-        user = User.find_by(email: auth_params[:email])
-        return invalid_login_attempt unless user
+        return invalid_login_attempt unless (user_id = find_and_authenticate_user)
 
-        if user.authenticate(auth_params[:password])
-          jwt = Auth.issue(user: user.id)
-          render json: { jwt: jwt }
-        else
-          invalid_login_attempt
-        end
+        render json: { jwt: Auth.issue(user: user_id) }
       end
 
       private
+
+      def find_and_authenticate_user
+        user = User.find_by(email: auth_params[:email])
+        return unless user && user.authenticate(auth_params[:password])
+
+        user.id
+      end
 
       def invalid_login_attempt
         render json: { error: t(".invalid_login_attempt") },

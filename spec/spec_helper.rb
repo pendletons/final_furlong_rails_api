@@ -2,6 +2,7 @@
 
 require "simplecov"
 require "support/factory_girl"
+require "pundit/matchers"
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
